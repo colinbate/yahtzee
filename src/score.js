@@ -34,7 +34,6 @@ function hasStraight(dice) {
       maxrun = run[0];
     }
   }
-  console.log('RUN of', maxrun, 'from', dice);
   return maxrun;
 }
 
@@ -51,7 +50,6 @@ function hasMultiple(dice) {
       maxrun = run[0];
     }
   }
-  console.log('MULT of', maxrun, 'from', dice);
   return maxrun;
 }
 

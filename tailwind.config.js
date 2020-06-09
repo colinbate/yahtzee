@@ -1,10 +1,18 @@
+const PurgeSvelte = require('purgecss-from-svelte');
+
 module.exports = {
-  purge: [
-    './src/**/*.svelte',
-    './src/**/*.html',
-    './public/**/*.html',
-    './public/**/*.js',
-  ],
+  purge: {
+    content: [
+      './src/**/*.svelte',
+      './src/**/*.html',
+      './public/**/*.html',
+    ],
+    options: {
+      extractors: [
+        { extractor: PurgeSvelte.extract, extensions: ['svelte'] }
+      ]
+    }
+  },
   theme: {
     extend: {
       screens: {
