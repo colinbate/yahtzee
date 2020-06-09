@@ -3,6 +3,7 @@ module.exports = {
     './src/**/*.svelte',
     './src/**/*.html',
     './public/**/*.html',
+    './public/**/*.js',
   ],
   theme: {
     extend: {

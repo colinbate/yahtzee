@@ -130,7 +130,7 @@
 <svelte:body on:click={roll} />
 <main class="p-4 mx-auto text-center h-full">
   <h1 class="uppercase leading-none absolute text-6xl font-hairline text-svelte left-0 w-full md:left-auto md:w-auto">Yahtzee!</h1>
-  <div class="flex h-full flex-col md:flex-row">
+  <div class="flex md:h-full flex-col md:flex-row">
     <div class="flex-grow flex flex-col relative">
       <div class="flex-grow w-full tablesize relative">
         {#if firstLoad}
