@@ -1,0 +1,1 @@
+<ol class="list-outside list-decimal my-3 pl-6"><slot /></ol>

@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -21,9 +22,16 @@ export default {
     replace({
       YAHTZEE_VERSION: pkg.version,
       YAHTZEE_SHA: process.env.COMMIT_REF || 'local',
+      'process.env.NODE_ENV': production
+          ? JSON.stringify('production')
+          : JSON.stringify('development')
     }),
     svelte({
-      preprocess: sveltePreprocess({ postcss: true }),
+      extensions: ['.svelte', '.md'],
+      preprocess: [
+        mdsvex({ extension: '.md', layout: './src/components/Markdown.svelte' }),
+        sveltePreprocess({ postcss: true }),
+      ],
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into

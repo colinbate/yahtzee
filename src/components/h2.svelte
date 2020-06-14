@@ -1,0 +1,1 @@
+<h2 class="text-svelte font-light uppercase text-3xl text-center px-4"><slot /></h2>
