@@ -1,6 +1,18 @@
 import { assign } from 'xstate';
 import { getPossibleScores, isGameOver, totalScore } from './score';
 
+const rename = assign({
+  names: (ctx, ev) => {
+    const n = [...ctx.names];
+    n[ev.index] = ev.name;
+    return n;
+  }
+});
+
+const saveNames = ctx => {
+  window && window.localStorage.setItem('YAHTZEE_NAMES', JSON.stringify(ctx.names));
+};
+
 const setRolledDice = assign({
   tableDice: (_, ev) => ev.dice,
 });
@@ -86,6 +98,8 @@ const isGameOverGuard = (ctx) => ctx.scores.every(isGameOver);
 
 export const options = {
   actions: {
+    rename,
+    saveNames,
     setRolledDice,
     moveToTable,
     moveToTray,

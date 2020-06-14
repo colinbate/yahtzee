@@ -12,6 +12,11 @@ function selectScore(ev) {
   send(event.SET_SCORE, { category: ev.detail });
 }
 
+function rename(ev) {
+  const name = window.prompt('Enter your name', $state.context.names[ev.detail]);
+  send(event.SET_NAME, { index: ev.detail, name });
+}
+
 $: scoreData = {
   names: $state.context.names,
   scores: $state.context.scores,
@@ -35,7 +40,7 @@ $: isPlaying = $state.matches('game.playing');
   </div>
   <div class:mb-4={isPlaying}>
     {#if $state.matches('sidebar.showScore')}
-    <ScoreCard data={scoreData} on:chosen={selectScore} />
+    <ScoreCard data={scoreData} on:chosen={selectScore} on:rename={rename} />
     {#if isPlaying}<div class="text-center"><Button on:click={startOver}>Start Over</Button></div>{/if}
     {:else}
     <RulesPage />

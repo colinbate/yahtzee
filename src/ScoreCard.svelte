@@ -6,6 +6,7 @@ export let data;
 const dispatch = createEventDispatcher();
 
 const setScore = category => () => dispatch('chosen', category);
+const setName = index => () => dispatch('rename', index);
 
 </script>
 <div class="border-svelte border w-full max-w-xs mx-auto md:ml-4 rounded mb-4">
@@ -14,8 +15,10 @@ const setScore = category => () => dispatch('chosen', category);
     <thead>
       <tr>
         <th class="border-t border-svelte text-left px-2">Category</th>
-        {#each data.names as name}
-        <th class="border-t border-l border-svelte">{name}</th>
+        {#each data.names as name, i}
+        <th class="border-t border-l border-svelte">
+          <button on:click={setName(i)} class="cursor-pointer w-full h-full px-2 focus:outline-none" type="button">{name}</button>
+        </th>
         {/each}
       </tr>
     </thead>

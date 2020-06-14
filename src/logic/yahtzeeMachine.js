@@ -14,6 +14,11 @@ export const yahtzeeMachine = Machine({
     winner: null,
   },
   type: 'parallel',
+  on: {
+    SET_NAME: {
+      actions: ['rename', 'saveNames']
+    }
+  },
   states: {
     game: {
       initial: 'welcome',
