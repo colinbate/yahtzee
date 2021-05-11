@@ -115,7 +115,7 @@
 </style>
 <svelte:window on:keydown={handleKey} />
 <div class="text-center md:h-full fulltable flex-grow md:fixed box-border p-4" on:click={roll}>
-  <h1 class="uppercase leading-none absolute text-6xl font-hairline text-svelte left-0 w-full md:left-auto md:w-auto">Yahtzee!</h1>
+  <h1 class="uppercase leading-none absolute text-6xl font-thin text-svelte left-0 w-full md:left-auto md:w-auto">Yahtzee!</h1>
   <div class="flex md:h-full flex-col md:flex-row">
     <div class="flex-grow flex flex-col relative">
       <div class="flex-grow w-full tablesize relative">
