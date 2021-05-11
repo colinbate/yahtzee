@@ -68,12 +68,11 @@
   }
 }
 
-@screen dark {
-  .fulltable {
-    background-color: #3d3d3d;
-    background-image: url(../black-orchid.png);
-  }
+:global(.dark) .fulltable {
+  background-color: #3d3d3d;
+  background-image: url(../black-orchid.png);
 }
+
 
 .tablesize {
   --dice-size: calc((100vmin - 2rem) / 7.1);
@@ -105,15 +104,13 @@
   }
 }
 
-@screen dark {
-  .tablesize {
-    --dot-color: #fff;
-    --dice-color: #555;
-  }
-  .traysize {
-    --dot-color: #fff;
-    --dice-color: #555;
-  }
+:global(.dark) .tablesize {
+  --dot-color: #fff;
+  --dice-color: #555;
+}
+:global(.dark) .traysize {
+  --dot-color: #fff;
+  --dice-color: #555;
 }
 </style>
 <svelte:window on:keydown={handleKey} />

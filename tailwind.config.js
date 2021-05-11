@@ -1,6 +1,8 @@
 const PurgeSvelte = require('purgecss-from-svelte');
 
 module.exports = {
+  darkMode: 'class',
+  mode: 'jit',
   purge: {
     content: [
       './src/**/*.svelte',
@@ -16,8 +18,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        light: { raw: "(prefers-color-scheme: light)" },
-        dark: { raw: "(prefers-color-scheme: dark)" },
+        // light: { raw: "(prefers-color-scheme: light)" },
+        // dark: { raw: "(prefers-color-scheme: dark)" },
         landscape: { raw: "(orientation: landscape)" },
         portrait: { raw: "(orientation: portrait)" },
       },

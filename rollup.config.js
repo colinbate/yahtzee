@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import css from 'rollup-plugin-css-only';
 import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
 
@@ -20,6 +21,7 @@ export default {
   },
   plugins: [
     replace({
+      preventAssignment: true,
       YAHTZEE_VERSION: pkg.version,
       YAHTZEE_SHA: process.env.COMMIT_REF || 'local',
       'process.env.NODE_ENV': production
@@ -32,15 +34,11 @@ export default {
         mdsvex({ extension: '.md', layout: './src/components/Markdown.svelte' }),
         sveltePreprocess({ postcss: true }),
       ],
-      // enable run-time checks when not in production
-      dev: !production,
-      // we'll extract any component CSS out into
-      // a separate file - better for performance
-      css: (css) => {
-        css.write('public/build/bundle.css');
+      compilerOptions: {
+        dev: !production,
       },
     }),
-
+    css({ output: 'bundle.css' }),
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
     // some cases you'll need additional configuration -
