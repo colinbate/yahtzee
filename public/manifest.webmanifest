@@ -1,0 +1,37 @@
+{
+    "theme_color": "#d63600",
+    "background_color": "#d63600",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Yahtzee",
+    "short_name": "Yahtzee",
+    "description": "Pass and play Yahtzee game.",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-750x1334.png",
+            "sizes": "750x1334",
+            "type": "image/png"
+        }
+    ]
+}

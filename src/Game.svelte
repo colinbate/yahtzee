@@ -60,7 +60,7 @@
 <style>
 .fulltable {
   background-color: #e8cd97;
-  background-image: url(https://dice.cbate.com/wood.jpg);
+  background-image: url(../wood.jpg);
 }
 @screen md {
   .fulltable {

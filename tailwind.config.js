@@ -7,19 +7,17 @@ module.exports = {
     content: [
       './src/**/*.svelte',
       './src/**/*.html',
-      './public/**/*.html',
+      './public/index.html',
     ],
-    options: {
-      extractors: [
-        { extractor: PurgeSvelte.extract, extensions: ['svelte'] }
-      ]
-    }
+    // options: {
+    //   extractors: [
+    //     { extractor: PurgeSvelte.extract, extensions: ['svelte'] }
+    //   ]
+    // }
   },
   theme: {
     extend: {
       screens: {
-        // light: { raw: "(prefers-color-scheme: light)" },
-        // dark: { raw: "(prefers-color-scheme: dark)" },
         landscape: { raw: "(orientation: landscape)" },
         portrait: { raw: "(orientation: portrait)" },
       },
@@ -46,7 +44,11 @@ module.exports = {
           '800': 'rgba(255, 62, 0, 0.8)',
           '900': 'rgba(255, 62, 0, 0.9)',
         },
-        svelte: '#ff3e00',
+        svelte: {
+          DEFAULT: '#ff3e00',
+          dark: '#d63600',
+          light: '#ff5e29',
+        },
       }
     }
   },
