@@ -1,4 +1,4 @@
-const version = '1.2.2';
+const version = '1.2.3';
 
 const cacheName = `YahtzeeCacheV${version}`;
 
@@ -11,6 +11,7 @@ const filesToCache = [
   '/manifest.webmanifest',
   '/icon-192x192.png',
   '/icon-256x256.png',
+  '/icon-256x256-maskable.png',
   '/icon-384x384.png',
   '/icon-512x512.png',
   '/icon-750x1334.png',
