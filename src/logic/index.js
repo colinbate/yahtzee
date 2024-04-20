@@ -3,6 +3,12 @@ import { useMachine } from './useMachine';
 import { options } from './actions';
 
 const names = JSON.parse((window && window.localStorage.getItem('YAHTZEE_NAMES')) || 'null');
+if (Array.isArray(names)) {
+  for (let ni = 0; ni < names.length; ni += 1) {
+    // Fix any saved broken names.
+    names[ni] = (names[ni] ?? '').trim() || `Player ${ni + 1}`;
+  }
+}
 const { state, send } = useMachine(yahtzeeMachine.withConfig(options).withContext({
   ...yahtzeeMachine.context,
   names: names || yahtzeeMachine.context.names

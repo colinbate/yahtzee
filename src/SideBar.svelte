@@ -14,7 +14,7 @@ function selectScore(ev) {
 
 function rename(ev) {
   const name = window.prompt('Enter your name', $state.context.names[ev.detail]);
-  send(event.SET_NAME, { index: ev.detail, name });
+  send(event.SET_NAME, { index: ev.detail, name: name.trim() || `Player ${ev.detail + 1}` });
 }
 
 $: scoreData = {
